@@ -39,6 +39,8 @@ ARG RESTY_CONFIG_OPTIONS="\
     --with-stream \
     --with-stream_ssl_module \
     --with-threads \
+    --with-luajit \
+    --add-module=/tmp/ngx_http_consistent_hash-master \
     "
 ARG RESTY_CONFIG_OPTIONS_MORE=""
 
@@ -69,6 +71,8 @@ RUN apk add --no-cache --virtual .build-deps \
         libxslt \
         zlib \
     && cd /tmp \
+    && wget https://github.com/replay/ngx_http_consistent_hash/archive/master.zip \
+    && unzip master.zip \
     && curl -fSL https://www.openssl.org/source/openssl-${RESTY_OPENSSL_VERSION}.tar.gz -o openssl-${RESTY_OPENSSL_VERSION}.tar.gz \
     && tar xzf openssl-${RESTY_OPENSSL_VERSION}.tar.gz \
     && curl -fSL https://ftp.pcre.org/pub/pcre/pcre-${RESTY_PCRE_VERSION}.tar.gz -o pcre-${RESTY_PCRE_VERSION}.tar.gz \
