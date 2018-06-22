@@ -42,6 +42,7 @@ ARG RESTY_CONFIG_OPTIONS="\
     --with-stream \
     --with-stream_ssl_module \
     --with-threads \
+    --with-ngx_http_upstream_consistent_hash_module \
     "
 ARG RESTY_CONFIG_OPTIONS_MORE=""
 
