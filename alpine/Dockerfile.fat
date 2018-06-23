@@ -52,5 +52,4 @@ RUN apk add --no-cache --virtual .build-deps \
     && mv /tmp/envsubst /usr/local/bin/
 
 RUN /usr/local/openresty/luajit/bin/luarocks install uuid
-RUN /usr/local/openresty/luajit/bin/luarocks install resty.json
 
